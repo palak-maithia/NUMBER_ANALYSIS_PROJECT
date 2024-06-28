@@ -1,0 +1,41 @@
+#include <stdio.h>
+#define P printf
+#define S scanf 
+
+int main() 
+{
+    int num[100],n;
+    int max=0,min;
+    float average,sum=0;
+    P("Enter the number of integers/ limit (up to 100): ");
+    S("%d",&n);
+
+    if(n<=1||n>100)
+	{
+        P("Invalid number of integers.\n");
+    }
+    P("Enter %d integers:\n", n);
+    for(int i=0;i<n;i++)
+	{
+        S("%d",&num[i]);
+        sum=sum+num[i];
+        if(num[i]>max)
+		{
+            max=num[i];
+        }
+		min=num[0];
+        if(num[i]<min) 
+		{
+            min=num[i];
+        }
+    }
+
+    average =sum/n;
+    P("\n Number Analysis:");
+    P("\n Sum: %.2f", sum);
+    P("\n Count: %d", n);
+    P("\n Average: %.2f", average);
+    P("\n Maximum: %d", max);
+    P("\n Minimum: %d", min);
+
+}
